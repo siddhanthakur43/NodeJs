@@ -33,3 +33,6 @@ call the connectDB function and connect to DB before starting the application
 
 create a userSchema
 create a User Modal
+create /sigup api to add data to database
+push some document to db using api call from postman
+error handling using try catch
