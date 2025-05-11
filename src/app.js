@@ -1,25 +1,27 @@
 const express = require('express');
 
+const { userAuth, adminAuth } = require('./middlewares/auth')
+
 const app = express();
 
-// app.get('/user', (req, res, next) => {
-//     console.log('Request handler no. 1');
-//     // res.send('Hello 1');
-//     next();
-// }, (req, res, next) => {
-//     console.log('Request handler no. 2')
-//     // res.send('Hello 2');
-//     next();
-// })
+app.use('/admin', adminAuth);
 
-app.get('/user', (req, res, next) => {
-    console.log('1');
-    next();
+app.post('/user/login', (req, res) => {
+    res.send('User logged in successfully');
 });
 
-app.get('/user', (req, res) => {
-    console.log('2');
-    res.send('res from 2');
+app.use('/user', userAuth);
+
+app.get('/user/getAllUser', (req, res) => {
+    res.send('All user data Received');
+});
+
+app.get('/user/deleteUser', (req, res) => {
+    res.send('user data deleted');
+});
+
+app.get('/admin/data', (req, res) => {
+    res.send("admin Data");
 })
 
 app.listen(3000, () => {
