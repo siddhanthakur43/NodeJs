@@ -25,3 +25,11 @@ how express js handles request behind the scenes
 write dummy auth and user Middlewares except /user/login
 write dummy middleware for admin
 Error handling using app.use('/user', (err, req, res, next)); always use this below the routes
+
+Create a free cluster on mongodb atlas
+install mongoose
+connect your application to the database
+call the connectDB function and connect to DB before starting the application
+
+create a userSchema
+create a User Modal
