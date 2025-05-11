@@ -3,16 +3,10 @@ const connectDB = require('./config/database');
 const User = require('./models/user');
 
 const app = express();
+app.use(express.json());
 
 app.post('/signup', async (req, res) => {
-    const newUser = {
-        firstName: "Siddhant",
-        lastName: "Thakur",
-        emailId: "siddhant@gmail.com",
-        password: "sid@123",
-        age: 25
-    }
-    const user = new User(newUser)
+    const user = new User(req.body)
     try {
         await user.save()
         res.send('User Added Successfully');
@@ -20,6 +14,27 @@ app.post('/signup', async (req, res) => {
         res.status(400).send('Something went wrong');
     }
 
+});
+
+//find user using email id
+app.get('/user', async (req, res) => {
+    const email = req.body.emailId;
+    const user = await User.find({ emailId: email });
+    console.log(user);
+})
+
+// to get all the users
+app.get('/feed', async (req, res) => {
+    try {
+        const users = await User.find({});
+        if (users.length > 0) {
+            res.send(users)
+        } else {
+            res.send("no users found");
+        }
+    } catch (error) {
+        res.status(400).send("Something went wrong");
+    }
 })
 
 connectDB().then(() => {

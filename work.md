@@ -36,3 +36,10 @@ create a User Modal
 create /sigup api to add data to database
 push some document to db using api call from postman
 error handling using try catch
+
+Diff bw json and JS object
+add express.json() middle ware to app
+make signup api to receive data from the end user (postman)
+
+get user by emailId
+get all the users
