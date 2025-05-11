@@ -22,4 +22,6 @@ next functions and error also with res.send();
 app.use('/user', [rh1, rh2], rh3, rh4)
 what is middlewares? 
 how express js handles request behind the scenes
-write dummt auth and user Middlewares except /user/login
+write dummy auth and user Middlewares except /user/login
+write dummy middleware for admin
+Error handling using app.use('/user', (err, req, res, next)); always use this below the routes
