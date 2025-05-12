@@ -41,5 +41,8 @@ Diff bw json and JS object
 add express.json() middle ware to app
 make signup api to receive data from the end user (postman)
 
-get user by emailId
-get all the users
+create Api to get user by emailId
+crate api to get all the users
+create a delete user API
+diff bw patch and put api
+create a patch api to update the user data
