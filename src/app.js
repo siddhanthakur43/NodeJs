@@ -7,11 +7,12 @@ app.use(express.json());
 
 app.post('/signup', async (req, res) => {
     const user = new User(req.body)
+    console.log(user, 'user');
     try {
         await user.save()
         res.send('User Added Successfully');
     } catch (error) {
-        res.status(400).send('Something went wrong');
+        res.status(400).send(error.message);
     }
 
 });
@@ -19,8 +20,12 @@ app.post('/signup', async (req, res) => {
 //find user using email id
 app.get('/user', async (req, res) => {
     const email = req.body.emailId;
-    const user = await User.find({ emailId: email });
-    console.log(user);
+    try {
+        const user = await User.find({ emailId: email });
+        res.send(user);
+    } catch (error) {
+        res.status(400).send('User Not found');
+    }
 })
 
 // to get all the users
@@ -52,11 +57,11 @@ app.patch('/user', async (req, res) => {
     const userId = req.body.userId;
     const data = req.body;
     try {
-        const user = await User.findByIdAndUpdate(userId, data, { returnDocument: 'after' });
+        const user = await User.findByIdAndUpdate(userId, data, { returnDocument: 'after', runValidators: true },);
         console.log(user);
         res.send("user updated successfully");
     } catch (error) {
-        res.status(400).send("Something went wrong");
+        res.status(400).send("Something went wrong" + error.message);
 
     }
 })

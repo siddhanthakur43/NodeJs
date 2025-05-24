@@ -46,3 +46,11 @@ crate api to get all the users
 create a delete user API
 diff bw patch and put api
 create a patch api to update the user data
+
+explore schema type optios
+add required, unique, lowercase, min, minLength, trim
+add default
+custom validator function for gender
+imporve db schema
+pull all appropriate validation you can think of
+add timestamp to userSchema
