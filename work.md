@@ -56,3 +56,7 @@ pull all appropriate validation you can think of
 add timestamp to userSchema
 add api level validation on patch request and signUp api
 Data Sanitization:- add api validation for each field
+
+npm validator library for validation
+install validator
+explore validator library function and use these for emailID, strong password
