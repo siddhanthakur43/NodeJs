@@ -54,3 +54,5 @@ custom validator function for gender
 imporve db schema
 pull all appropriate validation you can think of
 add timestamp to userSchema
+add api level validation on patch request and signUp api
+Data Sanitization:- add api validation for each field
