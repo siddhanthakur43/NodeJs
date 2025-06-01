@@ -60,3 +60,10 @@ Data Sanitization:- add api validation for each field
 npm validator library for validation
 install validator
 explore validator library function and use these for emailID, strong password
+
+validate data in signup api(helper validation function)
+install bcrypt library(hashing of password)
+create password hash using bcrypt and save the user
+
+create login api 
+compare password and throw error if password/email is not valid

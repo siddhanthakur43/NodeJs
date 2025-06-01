@@ -25,7 +25,12 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        validate(value) {
+            if (!validator.isStrongPassword(value)) {
+                throw new Error("Please Enter a strong password")
+            }
+        }
     },
     gender: {
         type: String,
